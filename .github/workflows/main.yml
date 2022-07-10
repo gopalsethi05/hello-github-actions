@@ -5,7 +5,11 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
+      - name: Checkout
+        uses: actions/checkout@v1
         with:
-          MY_NAME: "Gopal"
+            MY_NAME: "Gopal"
+      - name: Echo string
+        run: echo "Hello World"
+        shell: bash
+           

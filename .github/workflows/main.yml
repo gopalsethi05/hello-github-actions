@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
         with:
-            MY_NAME: "Gopal"
+            MY_NAME: "${{ github.event.author.name }}"
       - name: Echo string
         id: greet
         uses: actions/hello-world-javascript-action@v1

@@ -10,6 +10,11 @@ jobs:
         with:
             MY_NAME: "Gopal"
       - name: Echo string
-        run: echo "Hello World"
-        shell: bash
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: "Gopal"
+      - name: Log greeting time
+        run: echo "{{ steps.greet.outputs.time }}"
+        
            

@@ -1,5 +1,5 @@
 name: A workflow for my Hello World file
-on: 
+on:
   repository_dispatch:
     types: [build]
 jobs:
@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
-            MY_NAME: "${{ github.event.author.name }}"
+          # MY_NAME: "${{ github.event.author.name }}"
+          repository: "${{ github.repository}}"
       - name: Echo string
         id: greet
         uses: actions/hello-world-javascript-action@v1
@@ -18,5 +19,3 @@ jobs:
           who-to-greet: "Gopal"
       - name: Log greeting time
         run: echo "${{ steps.greet.outputs.time }}"
-        
-           
